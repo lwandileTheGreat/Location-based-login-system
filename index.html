@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>iTechYe2 - Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="./images/itechYe2.png" type="image/x-icon">
+	<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&key=AIzaSyD90RATHUKhANiK85amXCAjmmb463LnfAU"></script>
+	</head>
+	<body  style="background-image: url('./images/itechYe2.png'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-position: center;">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h1 class="heading-section" style="color: #fff; font-weight: bold; font-size: 5rem;">iTechYe2</h1>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+					 <div id="map-container-google-3" class="z-depth-1-half map-container-3 img">
+  <iframe loading='lazy' src="https://maps.google.com/maps?q=capetown,31LowerLongSt&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+    style="border:0" allowfullscreen></iframe>
+</div>
+
+				<!-- SIGN IN -->
+						<div class="login-wrap p-4 p-md-5 " id="signIn">
+			      	<div class="d-flex">
+			      		<div class="w-100">
+			      			<h3 class="mb-4">Sign In</h3>
+			      		</div>
+								<div class="w-100">
+									<p class="social-media d-flex justify-content-end">
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-github"></span></a>
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-linkedin"></span></a>
+									</p>
+								</div>
+			      	</div>
+							<form action="#" class="signin-form">
+			      		<div class="form-group mb-3">
+			      			<label class="label" for="name">Email</label>
+			      			<input type="text" class="form-control" placeholder="Email" id="email" required>
+			      		</div>
+		            <div class="form-group mb-3">
+		            	<label class="label" for="password">Password</label>
+		              <input type="password" class="form-control" placeholder="Password" id="password" required>
+		            </div>
+		            <div class="form-group">
+		            	<button class="form-control btn btn-primary rounded submit px-3" onclick="signIn(); lsRememberMe();" >Sign In</button>
+		            </div>
+		            <div class="form-group d-md-flex">
+		            	<div class="w-50 text-left">
+			            	<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+									  <input type="checkbox" checked id="rememberMe">
+									  <span class="checkmark"></span>
+										</label>
+									</div>
+									<div class="w-50 text-md-right">
+										<a href="#">Forgot Password</a>
+									</div>
+		            </div>
+		          </form>
+		          <p class="text-center">Not a member? <button id="signup"  onclick="changeSignScreen();">Sign Up</button></p>
+		        </div>
+
+
+				<!--SIGN UP-->
+						<div class="login-wrap p-4 p-md-5" id="signUp" hidden>
+			      	<div class="d-flex">
+			      		<div class="w-100">
+			      			<h3 class="mb-4">Sign Up</h3>
+			      		</div>
+								<div class="w-100">
+								
+									<p class="social-media d-flex justify-content-end">
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-linkedin"></span></a>
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-github"></span></a>
+									</p>
+								</div>
+			      	</div>
+							<form action="#" class="signin-form">
+			      		<div class="form-group mb-3">
+			      			<label class="label" for="name">Email</label>
+			      			<input type="text" class="form-control" placeholder="Email" id="signUpEmail" required>
+			      		</div>
+		            <div class="form-group mb-3">
+		            	<label class="label" for="password">Password</label>
+		              <input type="password" class="form-control" placeholder="Password" id="signUpPassword" required>
+					  <label class="label" for="password">Confirm Password</label>
+					   <input type="password" class="form-control" placeholder="Confirm Password" id="signUpConfirmPassword" required>
+		            </div>
+		            <div class="form-group">
+		            	<button class="form-control btn btn-primary rounded submit px-3" onclick="signUp()">Sign Up</button>
+		            </div>
+		            <div class="form-group d-md-flex">
+		            	<div class="w-50 text-left">
+			            
+									</div>
+									
+		            </div>
+		          </form>
+		          <p class="text-center">Are you a member? <button  onclick="changeSignScreen()">Sign In</button></p>
+		        </div>
+
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+ 
+<script>
+	
+	var toggler = true;
+
+  function changeSignScreen(){
+	
+	if(toggler){
+		document.getElementById("signUp").hidden = false;
+			document.getElementById("signIn").hidden = true;
+		toggler = false;
+	}
+		else{
+			document.getElementById("signUp").hidden = true;
+				document.getElementById("signIn").hidden = false;
+	  		toggler = true;
+		}
+	}
+
+</script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.2/firebase.js"></script>
+
+<script>// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyCxbXwde3irdnmIJpA32D9ULZarsBXJhuU",
+  authDomain: "location-login-7cbf7.firebaseapp.com",
+  projectId: "location-login-7cbf7",
+  storageBucket: "location-login-7cbf7.appspot.com",
+  messagingSenderId: "256711506316",
+  appId: "1:256711506316:web:473aaec12f527f11573ea9",
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);</script>
+
+ <script src="./js/authentication.js"></script>
+ <script>
+$(document).ready(function(){
+	    var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    };
+
+	function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+ if (!navigator.geolocation) {
+      console.log("Geolocation API not supported by this browser.");
+    } else {
+      console.log("Checking location...");
+      navigator.geolocation.getCurrentPosition(success, error, options);
+    }
+
+
+	function success(position){
+
+		
+			 $("iframe").attr("src", "https://maps.google.com/maps?q=" + position.coords.latitude +"," +  position.coords.longitude +"&t=k&z=13&ie=UTF8&iwloc=&output=embed");
+        }
+    });
+	
+
+
+
+ </script>
+ <script>
+	 const rmCheck = document.getElementById("rememberMe"),
+    emailInput = document.getElementById("email");
+
+if (localStorage.checkbox && localStorage.checkbox !== "") {
+  rmCheck.setAttribute("checked", "checked");
+  emailInput.value = localStorage.username;
+} else {
+  rmCheck.removeAttribute("checked");
+  emailInput.value = "";
+}
+
+function lsRememberMe() {
+  if (rmCheck.checked && emailInput.value !== "") {
+    localStorage.username = emailInput.value;
+    localStorage.checkbox = rmCheck.value;
+  } else {
+    localStorage.username = "";
+    localStorage.checkbox = "";
+  }
+}
+ </script>
+	</body>
+</html>
+
